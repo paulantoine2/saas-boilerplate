@@ -1,0 +1,14 @@
+{
+  "name": "@company/root",
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "turbo": "^2.1.2"
+  },
+  "packageManager": "pnpm@8.7.4"
+}
