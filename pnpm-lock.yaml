@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  strtok3: 8.0.1
+
 importers:
 
   .:
@@ -15,7 +18,7 @@ importers:
         specifier: ^2.1.2
         version: 2.1.2
 
-  packages/api:
+  apps/api:
     dependencies:
       '@adonisjs/auth':
         specifier: ^9.2.3
@@ -87,9 +90,6 @@ importers:
       pino-pretty:
         specifier: ^11.2.2
         version: 11.2.2
-      prettier:
-        specifier: ^3.3.3
-        version: 3.3.3
       ts-node-maintained:
         specifier: ^10.9.4
         version: 10.9.4(@swc/core@1.7.26)(@types/node@22.5.5)(typescript@5.5.4)
@@ -97,7 +97,7 @@ importers:
         specifier: ~5.5
         version: 5.5.4
 
-  packages/front:
+  apps/front:
     dependencies:
       react:
         specifier: ^18.3.1
@@ -3118,7 +3118,7 @@ packages:
     engines: {node: '>=18'}
     dependencies:
       get-stream: 9.0.1
-      strtok3: 8.1.0
+      strtok3: 8.0.1
       token-types: 6.0.0
       uint8array-extras: 1.4.0
 
@@ -5060,8 +5060,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /strtok3@8.1.0:
-    resolution: {integrity: sha512-ExzDvHYPj6F6QkSNe/JxSlBxTh3OrI6wrAIz53ulxo1c4hBJ1bT9C/JrAthEKHWG9riVH3Xzg7B03Oxty6S2Lw==}
+  /strtok3@8.0.1:
+    resolution: {integrity: sha512-HNkTAnNWQj2YBzfTtoC5OQyu1QwPsMwiB7VyQmNvQKCrmEDSvFB857Vh97UY9InGLNRAB91sdS1ztifRo/3hdA==}
     engines: {node: '>=16'}
     dependencies:
       '@tokenizer/token': 0.3.0

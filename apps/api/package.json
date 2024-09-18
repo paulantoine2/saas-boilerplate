@@ -70,13 +70,5 @@
   "overrides": {
     "strtok3": "8.0.1"
   },
-  "resolutions": {
-    "strtok3": "8.0.1"
-  },
-  "pnpm": {
-    "overrides": {
-      "strtok3": "8.0.1"
-    }
-  },
   "prettier": "@adonisjs/prettier-config"
 }
