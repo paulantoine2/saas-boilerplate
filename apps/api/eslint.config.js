@@ -17,6 +17,7 @@ export default tseslint.config(
     },
     rules: {
       "no-console": "off",
+      "prefer-arrow-callback": ["error", { allowNamedFunctions: true }],
     },
   }
 );

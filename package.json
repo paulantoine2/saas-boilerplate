@@ -1,5 +1,6 @@
 {
-  "name": "@company/root",
+  "name": "@repo/root",
+  "private": true,
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
@@ -9,14 +10,6 @@
   "devDependencies": {
     "prettier": "^3.3.3",
     "turbo": "^2.1.2"
-  },
-  "resolutions": {
-    "strtok3": "8.0.1"
-  },
-  "pnpm": {
-    "overrides": {
-      "strtok3": "8.0.1"
-    }
   },
   "packageManager": "pnpm@8.7.4"
 }

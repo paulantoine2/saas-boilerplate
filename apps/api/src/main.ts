@@ -1,22 +1,17 @@
-import Fastify from "fastify";
-import { add } from "./add.js";
+import { add } from "@repo/types/add";
+import { buildApp } from "./app.js";
 
-const fastify = Fastify({
-  logger: true,
-});
+async function runApp() {
+  const app = await buildApp();
 
-// Declare a route
-fastify.get("/", (request, reply) => {
-  reply.send({ hello: "world" });
-});
+  add(1, 2);
 
-// Run the server!
-fastify.listen({ port: 3002 }, (err, address) => {
-  if (err) {
-    fastify.log.error(err);
-    process.exit(1);
-  }
-  console.log(add(1, 2));
+  app.listen({ port: 3000 }, (err) => {
+    if (err) {
+      app.log.error(err);
+      process.exit(1);
+    }
+  });
+}
 
-  console.log(`Server is now listening on ${address}`);
-});
+runApp();
