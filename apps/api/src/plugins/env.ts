@@ -1,6 +1,5 @@
 import type { FastifyPluginAsyncTypebox } from "@fastify/type-provider-typebox";
-import { Type, Static } from "@sinclair/typebox";
-import { TypeCompiler } from "@sinclair/typebox/compiler";
+import z from "zod";
 import fp from "fastify-plugin";
 import "dotenv/config";
 
@@ -12,23 +11,20 @@ declare module "fastify" {
 }
 // -------------
 
-const EnvSchema = Type.Object({
-  PORT: Type.String(),
-  DATABASE_URL: Type.String(),
-  JWT_SECRET: Type.String(),
+const EnvSchema = z.object({
+  PORT: z.string(),
+  DATABASE_URL: z.string(),
+  JWT_SECRET: z.string(),
 });
 
-type Env = Static<typeof EnvSchema>;
-
-const EnvValidator = TypeCompiler.Compile(EnvSchema);
+type Env = z.infer<typeof EnvSchema>;
 
 const envPlugin: FastifyPluginAsyncTypebox = async (app) => {
-  const env = process.env;
+  const env = EnvSchema.parse(process.env);
 
-  if (!EnvValidator.Check(env)) {
+  if (!env) {
     app.log.fatal({
       msg: "Invalid environment variables",
-      details: [...EnvValidator.Errors(env)],
     });
     process.exit(0);
   }

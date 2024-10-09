@@ -1,21 +1,21 @@
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 
 function App() {
   return (
     <div>
       <Button
         onClick={() => {
-          fetch("http://localhost:3333/register", {
-            method: "POST",
+          fetch('http://localhost:3333/register', {
+            method: 'POST',
             headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
             },
-            credentials: "include",
+            credentials: 'include',
             body: JSON.stringify({
-              email: "pau.antone2@gmail.com",
-              name: "Paul",
-              password: "admin1",
+              email: 'pau.antone2@gmail.com',
+              name: 'Paul',
+              password: 'admin1',
             }),
           });
         }}

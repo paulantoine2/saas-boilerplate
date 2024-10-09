@@ -2,7 +2,7 @@ import type { FastifyPluginAsyncTypebox } from "@fastify/type-provider-typebox";
 import postgres from "postgres";
 import { drizzle, type PostgresJsDatabase } from "drizzle-orm/postgres-js";
 import fp from "fastify-plugin";
-import { schema, type DbSchema } from "../db/schema/index.js";
+import { schema, type DbSchema } from "@repo/db";
 
 // -------------
 declare module "fastify" {

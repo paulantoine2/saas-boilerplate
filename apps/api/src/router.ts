@@ -2,7 +2,8 @@ import {
   Type,
   type FastifyPluginAsyncTypebox,
 } from "@fastify/type-provider-typebox";
-import { user } from "./db/schema/user.js";
+import { user } from "@repo/db";
+
 import bcrypt from "bcryptjs";
 import { eq } from "drizzle-orm";
 

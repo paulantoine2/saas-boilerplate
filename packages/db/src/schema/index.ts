@@ -1,9 +1,9 @@
-import * as userTable from "./user.js";
+import * as userSchema from "./user.js";
 
 export * from "./user.js";
 
 export const schema = {
-  ...userTable,
+  ...userSchema,
 };
 
 export type DbSchema = typeof schema;

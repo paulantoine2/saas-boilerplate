@@ -1,8 +1,9 @@
 import Fastify, { type FastifyInstance } from "fastify";
 import sensible from "@fastify/sensible";
 import jwt from "@fastify/jwt";
-import { router } from "./router.js";
+
 import env from "./plugins/env.js";
+import { router } from "./router.js";
 
 export async function buildApp(): Promise<FastifyInstance> {
   const app = Fastify({
@@ -11,6 +12,7 @@ export async function buildApp(): Promise<FastifyInstance> {
 
   app.register(sensible);
   await app.register(env);
+
   app.register(jwt, { secret: app.env.JWT_SECRET });
 
   app.register(router);
