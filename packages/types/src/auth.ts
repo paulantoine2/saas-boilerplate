@@ -9,7 +9,3 @@ export type AuthResponse = {
   };
   token: string;
 };
-
-export function logHello(): void {
-  console.log("Hello");
-}

@@ -1,4 +1,3 @@
-import { logHello } from "@repo/types";
 import { buildApp } from "./app.js";
 
 async function runApp() {
@@ -6,7 +5,6 @@ async function runApp() {
 
   app.listen({ port: 3000 }, (err) => {
     if (err) {
-      logHello();
       app.log.error(err);
       process.exit(1);
     }
