@@ -1,6 +1,6 @@
-import * as userSchema from "./user.js";
+import * as userSchema from "./user";
 
-export * from "./user.js";
+export * from "./user";
 
 export const schema = {
   ...userSchema,

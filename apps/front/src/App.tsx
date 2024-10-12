@@ -5,7 +5,7 @@ function App() {
     <div>
       <Button
         onClick={() => {
-          fetch('http://localhost:3333/register', {
+          fetch('http://localhost:3000/auth/register', {
             method: 'POST',
             headers: {
               Accept: 'application/json',
