@@ -1,11 +1,11 @@
-import Axios, { InternalAxiosRequestConfig } from "axios";
+import Axios, { InternalAxiosRequestConfig } from 'axios';
 
-import { env } from "@/config/env";
-import { toast } from "@/hooks/use-toast";
+import { env } from '@/config/env';
+import { toast } from '@/hooks/use-toast';
 
 function authRequestInterceptor(config: InternalAxiosRequestConfig) {
   if (config.headers) {
-    config.headers.Accept = "application/json";
+    config.headers.Accept = 'application/json';
   }
 
   config.withCredentials = true;
@@ -23,14 +23,8 @@ api.interceptors.response.use(
   },
   (error) => {
     const message = error.response?.data?.message || error.message;
-    toast({ variant: "destructive", title: "Error", description: message });
-
-    if (error.response?.status === 401) {
-      const searchParams = new URLSearchParams();
-      const redirectTo = searchParams.get("redirectTo");
-      window.location.href = `/auth/login?redirectTo=${redirectTo}`;
-    }
+    toast({ variant: 'destructive', title: 'Error', description: message });
 
     return Promise.reject(error);
-  }
+  },
 );

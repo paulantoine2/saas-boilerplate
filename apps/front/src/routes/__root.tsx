@@ -1,3 +1,5 @@
+import { RouterLoadingBar } from '@/components/router-loading-bar';
+import { Toaster } from '@/components/ui/toaster';
 import type { QueryClient } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { createRootRouteWithContext, Outlet } from '@tanstack/react-router';
@@ -12,6 +14,8 @@ export const Route = createRootRouteWithContext<{
 function RootComponent() {
   return (
     <>
+      <RouterLoadingBar />
+      <Toaster />
       <div className={`min-h-screen flex flex-col`}>
         <Outlet />
       </div>

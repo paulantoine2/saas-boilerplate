@@ -1,7 +1,7 @@
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod";
 
 export const me: FastifyPluginAsyncZod = async (app) => {
-  app.get("/auth/me", {
+  app.get("/me", {
     handler: async function me(
       req,
       res
