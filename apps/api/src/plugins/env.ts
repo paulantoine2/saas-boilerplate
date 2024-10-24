@@ -1,7 +1,7 @@
-import type { FastifyPluginAsyncTypebox } from "@fastify/type-provider-typebox";
 import z from "zod";
 import fp from "fastify-plugin";
 import "dotenv/config";
+import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod";
 
 // -------------
 declare module "fastify" {
@@ -13,13 +13,14 @@ declare module "fastify" {
 
 const EnvSchema = z.object({
   PORT: z.string(),
+  NODE_ENV: z.string(),
   DATABASE_URL: z.string(),
   JWT_SECRET: z.string(),
 });
 
 type Env = z.infer<typeof EnvSchema>;
 
-const envPlugin: FastifyPluginAsyncTypebox = async (app) => {
+const envPlugin: FastifyPluginAsyncZod = async (app) => {
   const env = EnvSchema.parse(process.env);
 
   if (!env) {
