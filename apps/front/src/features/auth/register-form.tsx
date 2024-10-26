@@ -14,11 +14,13 @@ import {
   FormLabel,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { Separator } from '@/components/ui/separator';
 import { useRegister } from '@/lib/auth';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { AuthBodySchema, type AuthBody } from '@repo/types';
 import { Link } from '@tanstack/react-router';
 import { useForm } from 'react-hook-form';
+import { GoogleSignIn } from './google-sign-in';
 
 export function RegisterForm() {
   const register = useRegister();
@@ -32,11 +34,14 @@ export function RegisterForm() {
   }
 
   return (
-    <Card className="mx-auto max-w-sm">
+    <Card className="mx-auto max-w-md">
       <CardHeader>
         <CardTitle className="text-2xl">Sign up</CardTitle>
         <CardDescription>
-          Enter your information to create an account
+          Already have an account ?{' '}
+          <Link href="/login" className="underline">
+            Login
+          </Link>
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -73,17 +78,10 @@ export function RegisterForm() {
             >
               Create an account
             </Button>
-            <Button variant="outline" className="w-full">
-              Sign up with Google
-            </Button>
           </form>
         </Form>
-        <div className="mt-4 text-center text-sm">
-          Already have an account?{' '}
-          <Link href="/login" className="underline">
-            Login
-          </Link>
-        </div>
+        <Separator className="my-4" />
+        <GoogleSignIn />
       </CardContent>
     </Card>
   );

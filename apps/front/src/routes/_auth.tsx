@@ -14,8 +14,6 @@ export const Route = createFileRoute('/_auth')({
       })
       .catch(() => console.log('User is not logged in'));
 
-    console.log(data, location);
-
     if (!data) {
       throw redirect({
         to: '/login',

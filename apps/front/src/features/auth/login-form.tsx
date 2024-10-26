@@ -19,6 +19,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { AuthBodySchema, type AuthBody } from '@repo/types';
 import { Link, useRouter } from '@tanstack/react-router';
 import { useForm } from 'react-hook-form';
+import { GoogleSignIn } from './google-sign-in';
+import { Separator } from '@/components/ui/separator';
 
 export function LoginForm() {
   const router = useRouter();
@@ -38,11 +40,15 @@ export function LoginForm() {
   }
 
   return (
-    <Card className="mx-auto max-w-sm">
+    <Card className="mx-auto max-w-md">
       <CardHeader>
         <CardTitle className="text-2xl">Login</CardTitle>
         <CardDescription>
-          Enter your email below to login to your account
+          Don't have an account ?{' '}
+          <Link href="/register" className="underline">
+            Sign up
+          </Link>
+          .
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -83,17 +89,10 @@ export function LoginForm() {
             <Button type="submit" className="w-full" disabled={login.isPending}>
               Login
             </Button>
-            <Button variant="outline" className="w-full">
-              Login with Google
-            </Button>
           </form>
         </Form>
-        <div className="mt-4 text-center text-sm">
-          Don&apos;t have an account?{' '}
-          <Link href="/register" className="underline">
-            Sign up
-          </Link>
-        </div>
+        <Separator className="my-4" />
+        <GoogleSignIn />
       </CardContent>
     </Card>
   );

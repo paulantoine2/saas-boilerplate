@@ -10,6 +10,7 @@ import {
   validatorCompiler,
 } from "fastify-type-provider-zod";
 import jwt from "./plugins/jwt.js";
+import googleAuth from "./plugins/google-auth.js";
 
 export async function buildApp(): Promise<FastifyInstance> {
   const app = Fastify({
@@ -26,6 +27,7 @@ export async function buildApp(): Promise<FastifyInstance> {
   await app.register(drizzle);
   await app.register(jwt);
 
+  app.register(googleAuth);
   app.register(router);
 
   return app;
